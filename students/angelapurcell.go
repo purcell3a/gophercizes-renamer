@@ -50,6 +50,16 @@ func main() {
 		panic(err)
 	}
 	for _, file := range files{
-		fmt.Println(file)
+		var zero string
+		s := strings.Split(file, " ")
+		first := s[0] + s[1]
+		num := strings.Replace(s[2],"(", "", 1)
+		count := strings.Count(s[4], "0")
+		for i:= 0; i < count; i++ {
+			zero = zero + "0"
+
+		}
+		newPath := first + "_" + zero + num + ".txt"
+		fmt.Println(newPath)
 	}
 }
