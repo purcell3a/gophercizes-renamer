@@ -33,7 +33,7 @@ func getFileNames (files *[]string) filepath.WalkFunc{
 		if !strings.Contains(info.Name(), " "){
 			return nil
 		}
-        *files = append(*files, info.Name())
+        *files = append(*files, path)
         return nil
     }
 }
@@ -61,5 +61,6 @@ func main() {
 		}
 		newPath := first + "_" + zero + num + ".txt"
 		fmt.Println(newPath)
+		os.Rename(file, newPath)
 	}
 }
