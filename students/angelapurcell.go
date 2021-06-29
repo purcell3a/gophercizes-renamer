@@ -3,11 +3,11 @@ package main
 //list of imports
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
-	"log"
+	"strings"
 )
-
 
 //list of constants
 
@@ -18,10 +18,7 @@ var root = "/Users/angelapurcell/Workspace/personal/gophercizes/renamer/sample"
 
 
 //main types for files
-// IF FOLDER, IGNORE
-// if info.IsDir() {
-//     return nil
-// } 
+
 
 //list of functions
 func getFileNames (files *[]string) filepath.WalkFunc{
@@ -29,24 +26,30 @@ func getFileNames (files *[]string) filepath.WalkFunc{
         if err != nil {
             log.Fatal(err)
         }
-        *files = append(*files, file)
+		// IF FOLDER, IGNORE
+		if info.IsDir(){
+			return nil
+		}
+		if !strings.Contains(info.Name(), " "){
+			return nil
+		}
+        *files = append(*files, info.Name())
         return nil
     }
 }
+// func Rename(oldpath, newpath string) error{
+
+// }
 //list of methods
 
 //func main
 func main() { 
-	
-	fmt.Println(root)
+
 	err := filepath.Walk(root, getFileNames(&files))
 	if err != nil {
 		panic(err)
 	}
 	for _, file := range files{
-		files = append(files, info.Name)
 		fmt.Println(file)
 	}
-	// files = append(files, info.Name)
-	// err := filepath.Walk(root, visit(&files))
 }
