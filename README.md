@@ -40,3 +40,6 @@ Lastly, if you try to make a more generic solution you will probably want to use
 ## Bonus
 
 Verify that your code works recursively, and if you want try to make a more generic program that can be used for a few different filename patterns.
+
+
+ // https://flaviocopes.com/go-list-files/

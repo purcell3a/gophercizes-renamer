@@ -1,4 +1,4 @@
-package main
+package angelapurcell
 
 //list of imports
 import (
@@ -9,15 +9,9 @@ import (
 	"strings"
 )
 
-//list of constants
-
 //list of variables
 var files []string
 var root = "/Users/angelapurcell/Workspace/personal/gophercizes/renamer/sample"
-
-
-
-//main types for files
 
 
 //list of functions
@@ -37,10 +31,7 @@ func getFileNames (files *[]string) filepath.WalkFunc{
         return nil
     }
 }
-// func Rename(oldpath, newpath string) error{
 
-// }
-//list of methods
 
 //func main
 func main() { 
